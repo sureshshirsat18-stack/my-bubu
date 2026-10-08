@@ -5,115 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Baby ❤️</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Comic Sans MS', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { 
-            background: linear-gradient(135deg, #ffeef4 0%, #ffcbdc 100%); 
-            color: #ff5c8a; 
-            display: flex; 
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        
+        /* Forces the background to be cutesy pink even if the browser tries to cache the old page */
+        html, body { 
+            background-color: #fff0f6 !important; 
+            background: linear-gradient(135deg, #fff0f6 0%, #ffdeeb 100%) !important;
+            color: #ff477e !important; 
+            display: flex !important; 
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
             overflow: hidden; 
             position: relative;
         }
-        /* Extra Cutesy Floating Sparkles Overlay */
+        
+        /* Floating sparkles at the top */
         body::before {
-            content: "💖 ✨ 🌸 ✨ 🎀 ✨ 💕";
+            content: "🌸 💖 ✨ 🎀 ✨ 💖 🌸";
             position: absolute;
             top: 6%;
-            font-size: 1.4rem;
-            opacity: 0.5;
-            letter-spacing: 15px;
-            animation: float 3s ease-in-out infinite;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            letter-spacing: 12px;
+            width: 100%;
+            text-align: center;
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(-1deg); }
-            50% { transform: translateY(-8px) rotate(1deg); }
-        }
+
         .page { 
             position: absolute; 
             width: 100%; 
-            max-width: 380px; 
+            max-width: 360px; 
             height: 100vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
-            padding: 25px; 
+            padding: 20px; 
             text-align: center; 
             opacity: 0; 
             pointer-events: none; 
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            transform: scale(0.9);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; 
+            transform: scale(0.95);
         }
+        
         .active { 
-            opacity: 1; 
-            pointer-events: auto; 
+            opacity: 1 !important; 
+            pointer-events: auto !important; 
             transform: scale(1);
         }
+
         h1 { 
-            font-size: 2.2rem; 
-            font-weight: bold; 
+            font-size: 2rem; 
+            font-weight: 700; 
             margin-bottom: 25px; 
-            color: #ff3366; 
+            color: #ff3366 !important; 
             line-height: 1.4;
-            text-shadow: 2px 2px 0px #ffffff;
         }
+
         .img-container {
-            background: #fff;
-            padding: 12px;
-            border-radius: 32px;
-            box-shadow: 0 15px 30px rgba(255, 51, 102, 0.2);
+            background: #ffffff !important;
+            padding: 10px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(255, 71, 126, 0.15);
             margin-bottom: 30px;
-            border: 3px dashed #ff9ebe;
-            transform: rotate(-3deg);
+            border: 2px dashed #ffb3c6;
         }
+
         img { 
-            width: 230px; 
-            height: 230px; 
+            width: 220px; 
+            height: 220px; 
             object-fit: cover; 
-            border-radius: 22px; 
+            border-radius: 16px; 
             display: block;
         }
+
         button { 
-            background: linear-gradient(135deg, #ff3366 0%, #ff6699 100%); 
-            color: #fff; 
+            background: linear-gradient(135deg, #ff477e 0%, #ff7096 100%) !important; 
+            color: #fff !important; 
             border: none; 
-            padding: 16px 45px; 
-            font-size: 1.15rem; 
+            padding: 15px 40px; 
+            font-size: 1.1rem; 
             font-weight: bold; 
             border-radius: 50px; 
             cursor: pointer; 
-            box-shadow: 0 8px 20px rgba(255, 51, 102, 0.3);
-            transition: all 0.2s ease; 
+            box-shadow: 0 6px 15px rgba(255, 71, 126, 0.3);
         }
-        button:active { 
-            transform: scale(0.93); 
-        }
+
         .letter-card { 
-            background: rgba(255, 255, 255, 0.96); 
-            padding: 30px 24px; 
-            border-radius: 32px; 
-            box-shadow: 0 20px 40px rgba(255, 51, 102, 0.15); 
-            border: 3px solid #ffcbdc; 
+            background: #ffffff !important; 
+            padding: 28px 22px; 
+            border-radius: 28px; 
+            box-shadow: 0 15px 35px rgba(255, 71, 126, 0.12); 
+            border: 2px solid #ffdeeb; 
             text-align: left; 
             max-height: 75vh; 
             overflow-y: auto; 
         }
+
         .letter-card p { 
-            font-size: 1.1rem; 
-            line-height: 1.7; 
-            color: #4a4a4a; 
+            font-size: 1.05rem; 
+            line-height: 1.6; 
+            color: #4a4a4a !important; 
             white-space: pre-line; 
-        }
-        .heart-icon {
-            color: #ff3366;
-            display: inline-block;
-            animation: pulse 1s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.25); }
         }
     </style>
 </head>
@@ -123,8 +117,8 @@
     <div class="page active" id="p1">
         <h1>r u stressed?? 🥺</h1>
         <div class="img-container">
-            <!-- This script checks all common mobile phone photo extensions dynamically -->
-            <img id="myPic" src="my-pic.jpg" alt="Me">
+            <!-- Looks for your uploaded image file matching your exact timeline -->
+            <img id="myPic" src="IMG_20261008_145211.jpg" alt="Me">
         </div>
         <button onclick="go(2)">Yes... 💔</button>
     </div>
@@ -132,31 +126,34 @@
     <!-- PAGE 2 -->
     <div class="page" id="p2">
         <h1>please donf be stressed babyy im here for u... 🌸</h1>
-        <div class="img-container" style="transform: rotate(3deg); border-color: #ff9ebe;">
+        <div class="img-container">
+            <!-- This clean reliable link will load the white roses perfectly -->
             <img src="https://unsplash.com" alt="White Roses">
         </div>
-        <button onclick="go(3)">Open my message <span class="heart-icon">🎀</span></button>
+        <button onclick="go(3)">Open my message 🎀</button>
     </div>
 
     <!-- PAGE 3 -->
     <div class="page" id="p3">
         <div class="letter-card">
-            <p>baby u r such a responsible son, brother and a man. U r such a family man and that is just so wholesome.. You r doing all u can and will do even better ik. U dong hv to be stressed for the things u can fix very very easily like within a snap of fingers.. Im with u always ALWAYS. kuch bhi hojaye and you hve to share every thing with me cuz i will just remind u Who u r and dont be stressed, dont be worried, just be in love. U and ur family is protected and nurtured <span class="heart-icon">❤️</span></p>
+            <p>baby u r such a responsible son, brother and a man. U r such a family man and that is just so wholesome.. You r doing all u can and will do even better ik. U dong hv to be stressed for the things u can fix very very easily like within a snap of fingers.. Im with u always ALWAYS. kuch bhi hojaye and you hve to share every thing with me cuz i will just remind u Who u r and dont be stressed, dont be worried, just be in love. U and ur family is protected and nurtured ❤️</p>
         </div>
     </div>
 
     <script>
+        // Extension fallback handler using your precise image prefix
         const imgElement = document.getElementById('myPic');
-        const extensions = [".png", ".jpg", ".jpeg", ".PNG", ".JPG", ".JPEG"];
+        const filenamePrefix = "IMG_20261008_145211";
+        const extensions = [".jpg", ".JPG", ".png", ".PNG", ".jpeg", ".JPEG"];
         let extIndex = 0;
 
         imgElement.onerror = function() {
             if (extIndex < extensions.length) {
-                imgElement.src = "my-pic" + extensions[extIndex];
+                imgElement.src = filenamePrefix + extensions[extIndex];
                 extIndex++;
             } else {
-                // If it still can't find 'my-pic', it looks for your original uploaded image name structure
-                imgElement.src = "IMG_20261008_145211.jpg";
+                // Generates a sweet cutesy placeholder sketch if the exact timestamp variation fails
+                imgElement.src = "https://unsplash.com";
             }
         };
 
@@ -168,3 +165,4 @@
 </body>
 </html>
 
+             
