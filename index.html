@@ -7,8 +7,8 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Comic Sans MS', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         body { 
-            background: linear-gradient(135deg, #fff0f6 0%, #ffdeeb 100%); 
-            color: #ff6b6b; 
+            background: linear-gradient(135deg, #ffeef4 0%, #ffcbdc 100%); 
+            color: #ff5c8a; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
@@ -16,15 +16,15 @@
             overflow: hidden; 
             position: relative;
         }
-        /* Cutesy Floating Elements Overlay */
+        /* Extra Cutesy Floating Sparkles Overlay */
         body::before {
-            content: "🌸 ✨ 💖 ✨ 🎀 ✨ 💕";
+            content: "💖 ✨ 🌸 ✨ 🎀 ✨ 💕";
             position: absolute;
-            top: 8%;
-            font-size: 1.3rem;
-            opacity: 0.4;
+            top: 6%;
+            font-size: 1.4rem;
+            opacity: 0.5;
             letter-spacing: 15px;
-            animation: float 4s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite;
         }
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(-1deg); }
@@ -52,20 +52,20 @@
             transform: scale(1);
         }
         h1 { 
-            font-size: 2.1rem; 
+            font-size: 2.2rem; 
             font-weight: bold; 
             margin-bottom: 25px; 
-            color: #ff477e; 
+            color: #ff3366; 
             line-height: 1.4;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            text-shadow: 2px 2px 0px #ffffff;
         }
         .img-container {
             background: #fff;
-            padding: 10px;
-            border-radius: 30px;
-            box-shadow: 0 12px 25px rgba(255, 71, 126, 0.15);
+            padding: 12px;
+            border-radius: 32px;
+            box-shadow: 0 15px 30px rgba(255, 51, 102, 0.2);
             margin-bottom: 30px;
-            border: 3px dashed #ffb3c6;
+            border: 3px dashed #ff9ebe;
             transform: rotate(-3deg);
         }
         img { 
@@ -76,44 +76,44 @@
             display: block;
         }
         button { 
-            background: linear-gradient(135deg, #ff477e 0%, #ff7096 100%); 
+            background: linear-gradient(135deg, #ff3366 0%, #ff6699 100%); 
             color: #fff; 
             border: none; 
-            padding: 15px 45px; 
-            font-size: 1.1rem; 
+            padding: 16px 45px; 
+            font-size: 1.15rem; 
             font-weight: bold; 
             border-radius: 50px; 
             cursor: pointer; 
-            box-shadow: 0 8px 15px rgba(255, 71, 126, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 51, 102, 0.3);
             transition: all 0.2s ease; 
         }
         button:active { 
             transform: scale(0.93); 
         }
         .letter-card { 
-            background: rgba(255, 255, 255, 0.95); 
+            background: rgba(255, 255, 255, 0.96); 
             padding: 30px 24px; 
-            border-radius: 30px; 
-            box-shadow: 0 20px 40px rgba(255, 71, 126, 0.1); 
-            border: 2px solid #ffdeeb; 
+            border-radius: 32px; 
+            box-shadow: 0 20px 40px rgba(255, 51, 102, 0.15); 
+            border: 3px solid #ffcbdc; 
             text-align: left; 
             max-height: 75vh; 
             overflow-y: auto; 
         }
         .letter-card p { 
-            font-size: 1.05rem; 
+            font-size: 1.1rem; 
             line-height: 1.7; 
             color: #4a4a4a; 
             white-space: pre-line; 
         }
         .heart-icon {
-            color: #ff477e;
+            color: #ff3366;
             display: inline-block;
             animation: pulse 1s infinite;
         }
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+            50% { transform: scale(1.25); }
         }
     </style>
 </head>
@@ -123,8 +123,8 @@
     <div class="page active" id="p1">
         <h1>r u stressed?? 🥺</h1>
         <div class="img-container">
-            <!-- This smart script tries all common image variants for your uploaded phone file -->
-            <img id="myPic" src="IMG_20261008_145211.jpg" alt="Me">
+            <!-- This script checks all common mobile phone photo extensions dynamically -->
+            <img id="myPic" src="my-pic.jpg" alt="Me">
         </div>
         <button onclick="go(2)">Yes... 💔</button>
     </div>
@@ -132,7 +132,7 @@
     <!-- PAGE 2 -->
     <div class="page" id="p2">
         <h1>please donf be stressed babyy im here for u... 🌸</h1>
-        <div class="img-container" style="transform: rotate(3deg); border-color: #ffc2d1;">
+        <div class="img-container" style="transform: rotate(3deg); border-color: #ff9ebe;">
             <img src="https://unsplash.com" alt="White Roses">
         </div>
         <button onclick="go(3)">Open my message <span class="heart-icon">🎀</span></button>
@@ -146,19 +146,17 @@
     </div>
 
     <script>
-        // Automatic image extension fallback fixer
         const imgElement = document.getElementById('myPic');
-        const fileBasename = "IMG_20261008_145211"; 
-        const extensions = [".jpg", ".png", ".jpeg", ".JPG", ".PNG"];
+        const extensions = [".png", ".jpg", ".jpeg", ".PNG", ".JPG", ".JPEG"];
         let extIndex = 0;
 
         imgElement.onerror = function() {
             if (extIndex < extensions.length) {
-                imgElement.src = fileBasename + extensions[extIndex];
+                imgElement.src = "my-pic" + extensions[extIndex];
                 extIndex++;
             } else {
-                // Final safety placeholder if your filename numbers are completely different
-                imgElement.src = "https://unsplash.com";
+                // If it still can't find 'my-pic', it looks for your original uploaded image name structure
+                imgElement.src = "IMG_20261008_145211.jpg";
             }
         };
 
@@ -169,3 +167,4 @@
     </script>
 </body>
 </html>
+
