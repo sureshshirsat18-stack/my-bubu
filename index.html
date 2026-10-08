@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Baby ❤️</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background: #fffcf9; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+        .page { position: absolute; width: 100%; max-width: 400px; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px; text-align: center; opacity: 0; pointer-events: none; transition: opacity 0.6s ease-in-out; }
+        .active { opacity: 1; pointer-events: auto; }
+        h1 { font-size: 2rem; font-weight: 600; margin-bottom: 25px; color: #4a4a4a; line-height: 1.4; }
+        img { width: 220px; height: 220px; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        button { background: #111; color: #fff; border: none; padding: 14px 35px; font-size: 1rem; font-weight: 500; border-radius: 30px; cursor: pointer; transition: transform 0.2s; }
+        button:active { transform: scale(0.95); }
+        .letter-card { background: #fff; padding: 30px 24px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.04); border: 1px solid #f0e6df; text-align: left; max-height: 80vh; overflow-y: auto; }
+        .letter-card p { font-size: 1.05rem; line-height: 1.6; color: #4a4a4a; white-space: pre-line; }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1 -->
+    <div class="page active" id="p1">
+        <h1>r u stressed??</h1>
+        <!-- Automatically pulls the image you uploaded -->
+        <img src="IMG_20261008_145211.jpg" onerror="this.src='https://unsplash.com'" alt="Me">
+        <button onclick="go(2)">Yes...</button>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="p2">
+        <h1>please donf be stressed babyy im here for u...</h1>
+        <img src="https://unsplash.com" alt="White Roses">
+        <button onclick="go(3)">Click here 💌</button>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="p3">
+        <div class="letter-card">
+            <p>baby u r such a responsible son, brother and a man. U r such a family man and that is just so wholesome.. You r doing all u can and will do even better ik. U dong hv to be stressed for the things u can fix very very easily like within  a snap of fingers.. Im with u always ALWAYS. kuch bhi hojaye and you hve to share every thing with me cuz i will just remind u Who u r and dont be stressed, dont be worried, just be in love. U and ur family is protected and nurtured ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        function go(pageNum) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('p' + pageNum).classList.add('active');
+        }
+    </script>
+</body>
+</html>
